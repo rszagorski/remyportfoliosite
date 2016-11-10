@@ -8,44 +8,7 @@
 */
 
 @import 'normalize';
-@import 'typography';
-@import 'navigation';
-@import 'sidebar';
-@import 'comments';
+@import 'variables';
+@import 'mixins';
+@import 'styleandposition';
 @import 'footer';
-/*
-====================================
-Default Styling
-====================================
-*/
-
-img {
-	max-width: 100%;
-}
-
-body {
-	color: #333;
-}
-
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
-.content {
-	float: left;
-	width: 65%;
-	margin-right: 5%;
-}
-
-.full {
-	width: 100%;
-}
-
-
-
-
-
-
-
-

@@ -1,0 +1,25 @@
+@mixin flexBox() {
+	display: flex;
+	justify-content: center;
+	align-items:center;
+}
+
+@mixin proxima($fontsize) {
+	font-size: $fontsize;
+	font-family: $proxima;
+	text-transform: uppercase;
+	color: white;
+	letter-spacing: 0.14rem;
+}
+
+@mixin circularbold($fontsize) {
+	font-size: $fontsize;
+	font-family: $circularbold;
+	letter-spacing: 0.05rem;
+}
+
+@mixin circularit($fontsize) {
+	font-size: $fontsize;
+	font-family: $circularit;
+	letter-spacing: 0.05rem;
+}

@@ -1,0 +1,188 @@
+/*
+====================================
+Main Styling
+====================================
+*/
+
+html {
+	font-size: 10px;
+}
+
+body {
+	background: $background;
+}
+
+.main {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100vh;
+	position: relative;
+	left: 0;
+	right: 0;
+	transition: left 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+}
+
+h1, h2, h3 {
+	padding: 0;
+	margin: 0;
+}
+
+h2 {
+	@include circularbold(2.7rem);
+}
+
+h3 {
+	@include proxima(1.2rem);
+	display: inline;
+	transition: color 0.3s ease;
+	&:hover {
+		color: $popcolor;
+	}
+}
+
+svg.Z {
+	width: 27vw;
+}
+
+svg#arrow {
+	width: 2.2rem;
+}
+
+/*
+====================================
+BOTH SIDES
+====================================
+*/
+.developer-container, .designer-container {
+	@include flexBox;
+	height: 100vh;
+	width: 15%;
+	transition: color 0.4s ease;
+	transition: fill 0.4s ease;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.developer-post-container, .designer-post-container {
+	position: relative;
+	background-size: cover;
+	height: 100%;
+	.overlay {
+		height: 100%;
+		@include flexBox;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		transition: opacity 0.4s ease;
+		h2, p, svg.right-arrow {
+			color: white;
+			bottom: 0;
+			position: relative;
+			transition: bottom 0.4s ease;
+			margin-left: 3rem;
+		}
+		p {
+			@include circularit(1.7rem);
+			text-transform: lowercase;
+			margin-top: 0.6rem;
+			margin-bottom: 1.9rem;
+		}
+		p, svg.right-arrow {
+			opacity: 0;
+			transition: opacity 0.4s ease, bottom 0.4s ease;
+
+		}
+		svg.right-arrow {
+			transform: rotate(180deg);
+			padding: 0;
+		}
+	}
+	&:hover h2, &:hover p, &:hover svg.right-arrow {
+		bottom: 3rem;
+	}
+	img {
+		max-width: 100%;
+		display: block;
+	}
+	&:hover p, &:hover svg.right-arrow {
+		opacity: 1;
+	}
+}
+
+/*
+====================================
+DEVELOPER SIDE
+====================================
+*/
+.left {
+	display: flex;
+	flex-wrap: wrap;
+	width: 85%;
+	position: absolute;
+	top: 0;
+	left: -85%;
+	z-index: 500;
+	transition: left 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+	a {
+		width: 50%;
+		height: 50vh;
+		display: block;
+		text-decoration: none;
+	}
+}
+
+.cls-2 {
+	fill: white;
+	transition: fill 0.3s ease;
+}
+
+.developer-container:hover .cls-2 {
+	fill: $popcolor;
+}
+
+.developer-container:hover h3 {
+	color: $popcolor;
+}
+
+
+svg.left-arrow {
+	margin-right: 0.4rem;
+}
+
+/*
+====================================
+DESIGNER SIDE
+====================================
+*/
+
+.right {
+	display: flex;
+	flex-wrap: wrap;
+	width: 85%;
+	position: absolute;
+	top: 0;
+	right: -85%;
+	z-index: 500;
+	transition: right 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+	a {
+		width: 50%;
+		height: 50vh;
+		display: block;
+		text-decoration: none;
+	}
+}
+
+.designer-container:hover .cls-2 {
+	fill: $popcolor;
+}
+
+.designer-container:hover h3 {
+	color: $popcolor;
+}
+
+svg.right-arrow {
+	transform: rotate(180deg);
+	margin-left: 0.4rem;
+}
