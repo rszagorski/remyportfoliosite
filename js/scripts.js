@@ -54,16 +54,41 @@ devPortfolio.events = function(){
 				$('.designer-title').text('Designer');
 			}, 800);
 		};
-
 	}); //end of click event for design
+
+	//on click of giant Z want to scroll down to /(reveal) the about section of the page
+	//the small Z logo and back to top text will fade in after everythings scrolled
+	//on click of the z logo again the user will be brought back to the main page (scroll up)
+	//and the small z logo and back to top text will disappear
+
+	$('.Z').on('click', function(){
+		$('html, body').animate({
+			scrollTop: $('.about').offset().top
+		}, 1000);
+		$('.back-to-main').css({
+			'opacity': 1
+		});
+	});
+
+	$('.back-to-main').on('click', function(){
+		$('html, body').animate({
+			scrollTop: $('header').offset().top
+		}, 1000);
+		$(this).css({
+			'opacity': 0
+		});
+	});
+
 }; // end of function
+
 
 devPortfolio.init = function(){
 	devPortfolio.events();
+	setTimeout(function() { 
+		$('html, body').scrollTop(0)
+	}, 750);
 };
 
 $(function(){
-
 	devPortfolio.init();
-
 });

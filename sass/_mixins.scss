@@ -18,8 +18,12 @@
 	letter-spacing: 0.05rem;
 }
 
+@mixin circularblack($fontsize) {
+	font-size: $fontsize;
+	font-family: $circularblack;
+}
+
 @mixin circularit($fontsize) {
 	font-size: $fontsize;
 	font-family: $circularit;
-	letter-spacing: 0.05rem;
 }

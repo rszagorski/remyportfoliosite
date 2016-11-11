@@ -4,6 +4,12 @@
 TYPE
 ====================================
 */
+
+@font-face {
+	font-family: "Circular-Black";
+	src: url('fonts/circular/lineto-circular-black.ttf') format("truetype");
+}
+
 @font-face {
 	font-family: "Circular-Bold";
 	src: url('fonts/circular/lineto-circular-bold.ttf') format("truetype");
@@ -19,7 +25,9 @@ TYPE
 	src: url('fonts/circular/lineto-circular-bookItalic.ttf') format("truetype");
 }
 
+
 $proxima: 'proxima nova', sans-serif;
+$circularblack: "Circular-Black";
 $circularbold: "Circular-Bold";
 $circular: "Circular-Book";
 $circularit: "Circular-Book-Italic";
@@ -31,5 +39,7 @@ COLORS
 ====================================
 */
 
-$background: #0d0d0d;
+$darkcolor: #0d0d0d;
 $popcolor: #ff1282;
+$aboutbg: #f0f0f0;
+$rulecolor: #e1e1e1;

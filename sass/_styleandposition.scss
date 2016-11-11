@@ -6,10 +6,11 @@ Main Styling
 
 html {
 	font-size: 10px;
+	// overflow: hidden;
 }
 
 body {
-	background: $background;
+	background: $darkcolor;
 }
 
 .main {
@@ -43,6 +44,12 @@ h3 {
 
 svg.Z {
 	width: 27vw;
+	.cls-1 {
+		transition: fill 0.4s ease;
+	}
+	&:hover .cls-1{
+		fill: $popcolor;
+	}
 }
 
 svg#arrow {
@@ -161,7 +168,7 @@ DESIGNER SIDE
 	display: flex;
 	flex-wrap: wrap;
 	width: 85%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: -85%;
 	z-index: 500;
@@ -186,3 +193,198 @@ svg.right-arrow {
 	transform: rotate(180deg);
 	margin-left: 0.4rem;
 }
+
+/*
+====================================
+ABOUT SECTION
+====================================
+*/
+.back-to-main {
+	@include flexBox();
+	flex-direction: column;
+	min-height: 16vh;
+	width: 100%;
+	background-color: $darkcolor;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 1s 0.9s ease;
+	cursor: pointer;
+	.cls-1 {
+		fill: white;
+		transition: fill 0.4s ease;
+	}
+	svg#arrow-up{
+		height: 2.2rem;
+		margin-bottom: 1.2rem;
+	}
+	svg.z-logo{
+		width: 2.85rem;
+	}
+	p {
+		margin: 0.85rem 0 0;
+		color: white;
+		transition: color 0.4s ease;
+		font-family: $proxima;
+		font-weight: 100;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+	&:hover .cls-1 {
+		fill: $popcolor;
+	}
+	&:hover p{
+		color: $popcolor;
+	}
+}
+
+.about {
+	background-color: $aboutbg;
+	background-image: url(./images/Z.png);
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: top center;
+	margin: 0 auto;
+	padding-bottom: 7rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	// height: 100vh;
+	transition: all 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+}
+
+.wrapper {
+	max-width: 1300px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+h1 {
+	@include circularblack(4.2rem);
+	color: $darkcolor;
+	margin: 19rem auto 7rem;
+}
+
+.about-container {
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.about-post {
+	display: flex;
+	flex-direction: row;
+	margin-right: 1%;
+	width: 33.3%;
+	&:last-of-type {
+		margin-right: 0;
+	}
+	.img-wrapper {
+		width: 35%;
+		img {
+			max-width: 100%;
+		}
+	}
+	p {
+		@include circularblack(2.7rem);
+		color: $darkcolor;
+		margin: 0.45rem 0rem 0.45rem 1.4rem ;
+	}
+	em {
+		@include circularit(2.7rem);
+	}
+}
+
+hr.rule {
+	margin: 7rem 0;
+	background-color: $rulecolor;
+	height: 0.15rem;
+	border: 0; 
+}
+
+/*
+====================================
+SOCIAL
+====================================
+*/
+
+.social-container {
+	@include flexBox();
+	flex-direction: column;
+	margin-bottom: 5rem;
+	.pnumber {
+		margin-top: 0;
+	}
+}
+
+.social-links-container {
+	@include flexBox();
+	a {
+		text-decoration: none;
+		margin-right: 2rem;
+		&:last-of-type {
+			margin-right: 0;
+		}
+		&:hover .social-link{
+			background: $popcolor;
+		}
+	}
+}
+
+.contact-info {
+	margin: 0 auto;
+	text-align: center;
+	h2 {
+		@include circularblack(3.5rem);
+		letter-spacing: 0rem;
+	}
+	h5 {
+		@include circularit(1.55rem);
+		margin: 0.8rem 0 0;
+	}
+	hr {
+		width: 4rem;
+		background-color: $rulecolor;
+		height: 0.25rem;
+		margin: 2.2rem auto;
+		text-align: center;
+		border: 0; 
+	}
+	a {
+		display: block;
+		text-decoration: none;
+		color: #a0a0a0;
+		font-family: $circular;
+		font-size: 2rem;
+		margin: 0.75rem 0;
+		transition: color 0.3s ease;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		&:visited {
+			text-decoration: none;
+		}
+		&:hover {
+			color: $popcolor;
+		}
+	}
+}
+.social-link {
+	@include flexBox();
+	width: 4.4rem;
+	height: 4.4rem;
+	border-radius: 50%;
+	background-color: $darkcolor;
+	color: #f8f8f8;
+	margin-top: 3.7rem;
+	transition: background 0.3s ease;
+	i {
+		font-size: 2rem;
+	}
+	.fa-github {
+		font-size: 2.4rem;
+	}
+}
+
