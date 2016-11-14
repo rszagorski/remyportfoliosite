@@ -6,13 +6,15 @@ Main Styling
 
 html {
 	font-size: 10px;
-	// overflow: hidden;
 }
 
 body {
-	background: $darkcolor;
+	overflow: hidden;
 }
 
+.z-page {
+	background: $darkcolor;
+}
 .main {
 	display: flex;
 	justify-content: space-between;
@@ -22,6 +24,21 @@ body {
 	left: 0;
 	right: 0;
 	transition: left 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+}
+
+.z-about-container {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 2.4rem;
+	display: flex;
+	flex-direction: column;
+	opacity: 0;
+	transition: opacity 0.6s ease;
+	svg#down-arrow {
+		height:2.2rem;
+		margin-top: 0.4rem;
+	}
 }
 
 h1, h2, h3 {
@@ -49,12 +66,18 @@ svg.Z {
 	}
 	&:hover .cls-1{
 		fill: $popcolor;
+		cursor: pointer;
+	}
+	&:hover {
+		cursor: pointer;
 	}
 }
+
 
 svg#arrow {
 	width: 2.2rem;
 }
+
 
 /*
 ====================================
@@ -79,15 +102,50 @@ BOTH SIDES
 	.overlay {
 		height: 100%;
 		@include flexBox;
-		flex-direction: column;
-		justify-content: flex-end;
+		flex-direction: row;
+		justify-content: space-between;
 		align-items: flex-start;
 		transition: opacity 0.4s ease;
-		h2, p, svg.right-arrow {
+		.overlay-skills {
+			margin: 3rem 3rem 0 0;
+			h5 {
+				margin: 0.8rem 0 0;
+				border: 1px solid $aboutbg;
+				padding: 0.85rem 1.2rem;
+				font-family: $proxima;
+				font-size: 1.3rem;
+				font-weight: 100;
+				color: $aboutbg;
+				letter-spacing: 0.03rem;
+				text-align: center;
+			}
+		}
+		.overlay-text {
+			height: 100%;
+			@include flexBox;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: flex-start;
+			transition: opacity 0.4s ease;
+			padding-bottom: 3rem;
+		}
+		.arrow-text-container {
+			max-height: 0;
+			overflow: hidden;
+			opacity: 0;
+			transition: max-height 1.2s ease, opacity 1.2s ease, bottom 1.2s ease;
+			bottom: 0;
+			position: relative;
+		}
+		h2 {
 			color: white;
 			bottom: 0;
 			position: relative;
-			transition: bottom 0.4s ease;
+			transition: bottom 1.5s ease;
+			margin-left: 3rem;
+		}
+		p, svg.right-arrow {
+			color: white;
 			margin-left: 3rem;
 		}
 		p {
@@ -96,26 +154,37 @@ BOTH SIDES
 			margin-top: 0.6rem;
 			margin-bottom: 1.9rem;
 		}
-		p, svg.right-arrow {
-			opacity: 0;
-			transition: opacity 0.4s ease, bottom 0.4s ease;
-
-		}
+		// p, svg.right-arrow {
+		// 	opacity: 0;
+		// 	transition: opacity 0.4s ease, bottom 0.4s ease;
+		// }
 		svg.right-arrow {
 			transform: rotate(180deg);
 			padding: 0;
 		}
 	}
-	&:hover h2, &:hover p, &:hover svg.right-arrow {
-		bottom: 3rem;
+	&:hover .arrow-text-container {
+		max-height: 180px;
+		// bottom: 3rem;
+		opacity: 1;
+	}
+	// &:hover h2, &:hover p, &:hover svg.right-arrow {
+	// 	bottom: 3rem;
+	// }
+	&:hover h2 {
+		// bottom: 3rem;
+	}
+	&:hover .overlay-skills h5 {
+		color: white;
+		border: 1px solid white;
 	}
 	img {
 		max-width: 100%;
 		display: block;
 	}
-	&:hover p, &:hover svg.right-arrow {
-		opacity: 1;
-	}
+	// &:hover p, &:hover svg.right-arrow {
+	// 	opacity: 1;
+	// }
 }
 
 /*
@@ -132,6 +201,8 @@ DEVELOPER SIDE
 	left: -85%;
 	z-index: 500;
 	transition: left 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+	overflow-y: auto;
+	height: 100vh;
 	a {
 		width: 50%;
 		height: 50vh;
@@ -168,9 +239,11 @@ DESIGNER SIDE
 	display: flex;
 	flex-wrap: wrap;
 	width: 85%;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	right: -85%;
+	overflow-y: auto;
+	height: 100vh;
 	z-index: 500;
 	transition: right 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
 	a {
@@ -199,6 +272,7 @@ svg.right-arrow {
 ABOUT SECTION
 ====================================
 */
+
 .back-to-main {
 	@include flexBox();
 	flex-direction: column;
@@ -209,7 +283,7 @@ ABOUT SECTION
 	top: 0;
 	left: 0;
 	opacity: 0;
-	transition: opacity 1s 0.9s ease;
+	transition: opacity 1s 0.5s ease;
 	cursor: pointer;
 	.cls-1 {
 		fill: white;
@@ -251,6 +325,8 @@ ABOUT SECTION
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	overflow-y: auto;
+	height: 84vh;
 	// height: 100vh;
 	transition: all 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
 }
@@ -264,7 +340,7 @@ ABOUT SECTION
 h1 {
 	@include circularblack(4.2rem);
 	color: $darkcolor;
-	margin: 19rem auto 7rem;
+	margin: 7rem auto 7rem;
 }
 
 .about-container {
@@ -298,11 +374,52 @@ h1 {
 }
 
 hr.rule {
-	margin: 7rem 0;
+	margin: 8rem 0;
 	background-color: $rulecolor;
 	height: 0.15rem;
 	border: 0; 
 }
+
+/*
+====================================
+LANGUAGES
+====================================
+*/
+.languages {
+	text-align: center;
+	padding: 3rem 0 5rem;
+	h2 {
+		@include circularblack(3.4rem);
+	}
+	h5 {
+		@include circularit(2rem);
+		margin: 0.95rem 0 0;
+		letter-spacing: 0.03rem;
+	}
+}
+
+.dev-icons-container {
+	@include flexBox();
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 700px;
+	margin: 5.8rem auto 0;
+	.dev-icon {
+		width: 16.6%;
+		&:nth-child(n + 7) {
+			margin-top: 4.7rem;
+		}
+		i {
+			font-size: 4.5rem;
+		}
+		p {
+			@include proxima(1.1rem);
+			color: #b7b7b7;
+			margin: 1.7rem 0 0;
+		}
+	}
+}
+
 
 /*
 ====================================
@@ -387,4 +504,5 @@ SOCIAL
 		font-size: 2.4rem;
 	}
 }
+
 

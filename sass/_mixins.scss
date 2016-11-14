@@ -27,3 +27,8 @@
 	font-size: $fontsize;
 	font-family: $circularit;
 }
+
+@mixin circularblackit($fontsize) {
+	font-size: $fontsize;
+	font-family: $circularblackit;
+}

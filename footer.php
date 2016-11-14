@@ -1,8 +1,3 @@
-<footer>
-  <div class="container">
-  </div>
-</footer>
-
 <script>
 // scripts.js, plugins.js and jquery are enqueued in functions.php
 /* Google Analytics! */

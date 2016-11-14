@@ -281,3 +281,9 @@ function get_post_parent($post) {
 		return $post->ID;
 	}
 }
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
+}

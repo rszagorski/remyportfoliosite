@@ -1,6 +1,5 @@
 var devPortfolio = {};
 
-
 devPortfolio.events = function(){
 	$('.developer-container').on('click', function(){
 		//on click of the developer h3
@@ -66,8 +65,12 @@ devPortfolio.events = function(){
 			scrollTop: $('.about').offset().top
 		}, 1000);
 		$('.back-to-main').css({
-			'opacity': 1
+			'opacity': 1,
+			'pointer-events': 'auto'
 		});
+		// $('.back-to-main').css({
+		// 	'opacity': 1
+		// });
 	});
 
 	$('.back-to-main').on('click', function(){
@@ -75,9 +78,73 @@ devPortfolio.events = function(){
 			scrollTop: $('header').offset().top
 		}, 1000);
 		$(this).css({
-			'opacity': 0
+			'opacity': 0,
+			'pointer-events': 'none'
 		});
 	});
+
+ //on hover of z- want gif 1 to be the svg that appears and hide other 3 svgs
+ //on hover of developer want gif developer svg to appear and hide all other svgs
+ //on hover of design want gif designer svg appear and hide all other svgs
+ //have 
+	// $('.Z').mouseenter(function(){
+	// 	var $pattern1Pattern = $('#developer_z');
+	// 	var $pattern1img = $('#developer_z image');
+	// 	var $defs = $('<defs>');
+
+	// 	console.log('mouseenter');
+	// 	$('.z-pattern').remove();
+	// 	console.log($pattern1img);
+	// 	console.log($pattern1Pattern);
+	// 	console.log($defs);
+	// 	$pattern1Pattern.append($pattern1img);
+	// 	console.log($pattern1Pattern, 'second p1p');
+	// 	$defs.append($pattern1Pattern);
+	// 	$('.Z').prepend($defs);
+	// 	// $('#about_z').css({
+	// 	// 	'opacity': 1
+	// 	// });
+	// }).mouseleave(function(){
+	// 	console.log('mouseleave');
+	// 	$('#about_z').css({
+	// 		'opacity': 0
+	// 	});
+	// });
+
+	// $('.designer-container').mouseenter(function(){
+	// 	console.log('mouseenter');
+	// 	$('.z-pattern').css({
+			
+	// 	});
+	// 	$('#designer_z')
+	// }).mouseleave(function(){
+	// 	console.log('mouseleave');
+
+	// });
+
+	// $('.developer-container').mouseenter(function(){
+	// 	console.log('mouseenter');
+	// 	$('.z-pattern').css({
+			
+	// 	});
+	// 	$('#developer_z')
+	// }).mouseleave(function(){
+	// 	console.log('mouseleave');
+		
+	// });
+
+$('.z-container-inner').mouseenter(function(){
+	$('.z-about-container').css({
+		'opacity': 1
+	});
+}).mouseleave(function(){
+	$('.z-about-container').css({
+		'opacity': 0
+	});
+});
+
+
+
 
 }; // end of function
 
