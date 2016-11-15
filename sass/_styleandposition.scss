@@ -8,7 +8,7 @@ html {
 	font-size: 10px;
 }
 
-body {
+body{
 	overflow: hidden;
 }
 
@@ -24,6 +24,14 @@ body {
 	left: 0;
 	right: 0;
 	transition: left 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+}
+.z-container {
+	width: 85%;
+}
+
+.z-container-inner {
+	width: 100%;
+	position: relative;
 }
 
 .z-about-container {
@@ -61,6 +69,10 @@ h3 {
 
 svg.Z {
 	width: 27vw;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	.cls-1 {
 		transition: fill 0.4s ease;
 	}
@@ -186,7 +198,10 @@ BOTH SIDES
 	// 	opacity: 1;
 	// }
 }
-
+.tilt {
+	display: inline;
+	
+}
 /*
 ====================================
 DEVELOPER SIDE

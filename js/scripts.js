@@ -1,5 +1,14 @@
 var devPortfolio = {};
 
+devPortfolio.toggleZ = function(toToggle){
+	$('.Z').css({
+		'display': 'none'
+	});
+	$(toToggle).css({
+		'display': 'block'
+	});
+};
+
 devPortfolio.events = function(){
 	$('.developer-container').on('click', function(){
 		//on click of the developer h3
@@ -87,64 +96,37 @@ devPortfolio.events = function(){
  //on hover of developer want gif developer svg to appear and hide all other svgs
  //on hover of design want gif designer svg appear and hide all other svgs
  //have 
-	// $('.Z').mouseenter(function(){
-	// 	var $pattern1Pattern = $('#developer_z');
-	// 	var $pattern1img = $('#developer_z image');
-	// 	var $defs = $('<defs>');
 
-	// 	console.log('mouseenter');
-	// 	$('.z-pattern').remove();
-	// 	console.log($pattern1img);
-	// 	console.log($pattern1Pattern);
-	// 	console.log($defs);
-	// 	$pattern1Pattern.append($pattern1img);
-	// 	console.log($pattern1Pattern, 'second p1p');
-	// 	$defs.append($pattern1Pattern);
-	// 	$('.Z').prepend($defs);
-	// 	// $('#about_z').css({
-	// 	// 	'opacity': 1
-	// 	// });
-	// }).mouseleave(function(){
-	// 	console.log('mouseleave');
-	// 	$('#about_z').css({
-	// 		'opacity': 0
-	// 	});
-	// });
-
-	// $('.designer-container').mouseenter(function(){
-	// 	console.log('mouseenter');
-	// 	$('.z-pattern').css({
-			
-	// 	});
-	// 	$('#designer_z')
-	// }).mouseleave(function(){
-	// 	console.log('mouseleave');
-
-	// });
-
-	// $('.developer-container').mouseenter(function(){
-	// 	console.log('mouseenter');
-	// 	$('.z-pattern').css({
-			
-	// 	});
-	// 	$('#developer_z')
-	// }).mouseleave(function(){
-	// 	console.log('mouseleave');
-		
-	// });
-
-$('.z-container-inner').mouseenter(function(){
-	$('.z-about-container').css({
-		'opacity': 1
+	$('.designer-container').mouseenter(function(){
+		console.log('mouseenter');
+		devPortfolio.toggleZ('.Z.sylv-designer_z');
+	}).mouseleave(function(){
+		console.log('mouseleave');
+		devPortfolio.toggleZ('.Z:last-of-type');
 	});
-}).mouseleave(function(){
-	$('.z-about-container').css({
-		'opacity': 0
+
+	$('.developer-container').mouseenter(function(){
+		console.log('mouseenter');
+		devPortfolio.toggleZ('.Z.sylv-developer_z')
+	}).mouseleave(function(){
+		console.log('mouseleave');
+		devPortfolio.toggleZ('.Z:last-of-type');
 	});
-});
 
+	//on hover of inner-z- show the about me arrow section- off of hover, don't show it
+	// also have about gif show on enter and not on leave
 
-
+	$('.z-container-inner').mouseenter(function(){
+		$('.z-about-container').css({
+			'opacity': 1
+		});
+		devPortfolio.toggleZ('.Z.sylv-about_z');
+	}).mouseleave(function(){
+		$('.z-about-container').css({
+			'opacity': 0
+		});
+		devPortfolio.toggleZ('.Z:last-of-type');
+	});
 
 }; // end of function
 
@@ -154,6 +136,7 @@ devPortfolio.init = function(){
 	setTimeout(function() { 
 		$('html, body').scrollTop(0)
 	}, 750);
+	devPortfolio.toggleZ('.Z:last-of-type');
 };
 
 $(function(){

@@ -42,6 +42,30 @@
 	.languages {
 		padding: 0;
 	}
+	.designer {
+		display: flex;
+		align-items: flex-start;
+		.tilt {
+			transform: rotate(-90deg);
+			display: block;
+		}
+		svg.right-arrow {
+			margin-left: 0;
+			margin-right: 2rem;
+		}
+	}
+	.developer{
+		display: flex;
+		align-items: flex-end;
+		.tilt {
+			transform: rotate(90deg);
+			display: block;
+		}
+		svg.left-arrow {
+			margin-right: 0;
+			margin-left: 2rem;
+		}
+	}
 }
 
 @media (max-width: 850px) {
@@ -118,6 +142,20 @@
 		p, em {
 			font-size: 2.4rem;
 		}
+	}
+}
+
+@media (max-width: 618px) {
+	// body {
+	// 	overflow: visible;
+	// }
+	.about {
+		min-height: 84vh;
+		height: auto;
+		overflow-y: visible;
+	}
+	.back-to-main {
+		display:none;
 	}
 }
 
