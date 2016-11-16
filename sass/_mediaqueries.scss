@@ -66,6 +66,18 @@
 			margin-left: 2rem;
 		}
 	}
+	.right {
+
+  		a {
+			width: 100%;
+  		}
+  	}
+	.left {
+		
+		a {
+			width: 100%;
+		}
+	}
 }
 
 @media (max-width: 850px) {
@@ -80,18 +92,6 @@
 	svg.Z{
 		width: 45vw;
   	}
-  	.right {
-
-  		a {
-			width: 100%;
-  		}
-  	}
-	.left {
-		
-		a {
-			width: 100%;
-		}
-	}
 	.dev-icons-container {
 		width: 82%;
 		.dev-icon {
@@ -146,16 +146,16 @@
 }
 
 @media (max-width: 618px) {
-	// body {
-	// 	overflow: visible;
-	// }
+	body {
+		overflow: visible;
+	}
 	.about {
 		min-height: 84vh;
 		height: auto;
 		overflow-y: visible;
 	}
 	.back-to-main {
-		display:none;
+		opacity: 0;
 	}
 }
 

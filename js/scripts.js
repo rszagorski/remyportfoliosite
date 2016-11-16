@@ -10,59 +10,120 @@ devPortfolio.toggleZ = function(toToggle){
 };
 
 devPortfolio.events = function(){
-	$('.developer-container').on('click', function(){
-		//on click of the developer h3
-		//have the left side go from position off the screen to position on the screen
+	$(window).resize(function(){
+		$('.main').css({
+			'transition': 'none'
+		});
+		$('.left').css({
+			'transition': 'none'
+		});
+		$('.right').css({
+			'transition': 'none'
+		});
+		if ($(this.resizeTO)){
+			clearTimeout(this.resizeTO);
+		}
+		this.resizeTO = setTimeout(function(){
+			$(this).trigger('resizeEnd');
+		}, 100);
+	});
+	$(window).bind('resizeEnd', function(){
+		$('.main').css({
+			'transition': 'transform 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475)'
+		});
+		$('.left').css({
+			'transition': 'transform 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475)'
+		});
+		$('.right').css({
+			'transition': 'transform 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475)'
+		});
+	});
+	//on the resize of the browser take that stupid fucking transition off of it. 
+
+	$('.developer-container').on('click', function() {
+		$('.z-page').toggleClass('z-page-left');
+
 		if ($('.developer-title').text() === 'Developer') {
-			$('.left').css({
-				'left': 0 
-			});
-			$('.main').css({
-				'left': '85%'
-			});
 			setTimeout(function(){
 				$('.developer-title').text('Close');
 			}, 800);
 		} else if ($('.developer-title').text() === 'Close') {
-			$('.left').css({
-				'left': '-85%'
-			});
-			$('.main').css({
-				'left': 0
-			});
 			setTimeout(function(){
 				$('.developer-title').text('Developer');
 			}, 800);
 		};
-		//also move the entire main div off the screen to the right
-		//change "developer" to say "close"
-		//on click of "close" container, move left side off screen to original position
-		//and also move the entire main div back onto the screen
-	}); //end of click event for develop
+	});
 
-	$('.designer-container').on('click', function(){
+	$('.designer-container').on('click', function() {
+		$('.z-page').toggleClass('z-page-right');
+
 		if ($('.designer-title').text() === 'Designer') {
-			$('.right').css({
-				'right': 0
-			});
-			$('.main').css({
-				'left': '-85%'
-			});
 			setTimeout(function(){
 				$('.designer-title').text('Close');
 			}, 800);
 		} else if ($('.designer-title').text() === 'Close') {
-			$('.right').css({
-				'right': '-85%'
-			});
-			$('.main').css({
-				'left': 0
-			});
 			setTimeout(function(){
 				$('.designer-title').text('Designer');
 			}, 800);
 		};
-	}); //end of click event for design
+
+	});
+
+	
+
+	// $('.developer-container').on('click', function(){
+	// 	//on click of the developer h3
+	// 	//have the left side go from position off the screen to position on the screen
+	// 	if ($('.developer-title').text() === 'Developer') {
+	// 		$('.left').css({
+	// 			'left': 0 
+	// 		});
+	// 		$('.main').css({
+	// 			'left': '85%'
+	// 		});
+	// 		setTimeout(function(){
+	// 			$('.developer-title').text('Close');
+	// 		}, 800);
+	// 	} else if ($('.developer-title').text() === 'Close') {
+	// 		$('.left').css({
+	// 			'left': '-85%'
+	// 		});
+	// 		$('.main').css({
+	// 			'left': 0
+	// 		});
+	// 		setTimeout(function(){
+	// 			$('.developer-title').text('Developer');
+	// 		}, 800);
+	// 	};
+	// 	//also move the entire main div off the screen to the right
+	// 	//change "developer" to say "close"
+	// 	//on click of "close" container, move left side off screen to original position
+	// 	//and also move the entire main div back onto the screen
+	// }); //end of click event for develop
+
+	// $('.designer-container').on('click', function(){
+	// 	if ($('.designer-title').text() === 'Designer') {
+	// 		$('.right').css({
+	// 			'right': 0
+	// 		});
+	// 		$('.main').css({
+	// 			'left': '-85%'
+	// 		});
+	// 		setTimeout(function(){
+	// 			$('.designer-title').text('Close');
+	// 		}, 800);
+	// 	} else if ($('.designer-title').text() === 'Close') {
+	// 		$('.right').css({
+	// 			'right': '-85%'
+	// 		});
+	// 		$('.main').css({
+	// 			'left': 0
+	// 		});
+	// 		setTimeout(function(){
+	// 			$('.designer-title').text('Designer');
+	// 		}, 800);
+	// 	};
+	// }); //end of click event for design
 
 	//on click of giant Z want to scroll down to /(reveal) the about section of the page
 	//the small Z logo and back to top text will fade in after everythings scrolled

@@ -5,8 +5,7 @@
 	<?php $bgImage = get_field('big_background_project_image') ?>
 	<header class="port-header" style="background-image:url(<?php echo $bgImage['url']; ?>)">
 		<nav>
-			<?php $frontPage = get_template_directory_uri();?>
-			<a href="<?php echo $frontPage;?>#front-page.php">Z</a>
+			<a href="<?php home_url('/');?>">Z</a>
 		</nav>
 		<h1><?php the_field('big_project_headline') ?></h1>
 	</header>

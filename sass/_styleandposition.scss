@@ -14,16 +14,51 @@ body{
 
 .z-page {
 	background: $darkcolor;
+	position: relative;
+	width: 100vw;
+	min-height: 100vh;
+	overflow: hidden;
 }
+
+.z-page-right {
+	.main {
+		transform: translateX(-85vw);
+	}
+	.right {
+		transform: translateX(15vw)
+	}
+
+	~ .about {
+		display: none;
+	}
+}
+
+.z-page-left {
+	.main {
+		transform: translateX(85vw);
+	}
+	.left {
+		transform: translateX(0);
+	}
+
+	~ .about {
+		display: none;
+	}
+}
+
+
 .main {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 100vh;
+	width: 100%;
 	position: relative;
-	left: 0;
-	right: 0;
-	transition: left 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+	background: $darkcolor;
+	z-index: 100;
+	// left: 0;
+	// right: 0;
+	transition: transform 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
 }
 .z-container {
 	width: 85%;
@@ -110,6 +145,7 @@ BOTH SIDES
 .developer-post-container, .designer-post-container {
 	position: relative;
 	background-size: cover;
+	// background-position: center center;
 	height: 100%;
 	.overlay {
 		height: 100%;
@@ -130,6 +166,7 @@ BOTH SIDES
 				color: $aboutbg;
 				letter-spacing: 0.03rem;
 				text-align: center;
+				min-width: 82px;
 			}
 		}
 		.overlay-text {
@@ -200,7 +237,7 @@ BOTH SIDES
 }
 .tilt {
 	display: inline;
-	
+
 }
 /*
 ====================================
@@ -213,11 +250,12 @@ DEVELOPER SIDE
 	width: 85%;
 	position: absolute;
 	top: 0;
-	left: -85%;
-	z-index: 500;
-	transition: left 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+	// left: -85%;
+	transform: translateX(-100%);
+	z-index: 99;
+	transition: transform 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
 	overflow-y: auto;
-	height: 100vh;
+	height: 100%;
 	a {
 		width: 50%;
 		height: 50vh;
@@ -256,11 +294,12 @@ DESIGNER SIDE
 	width: 85%;
 	position: absolute;
 	top: 0;
-	right: -85%;
+	transform: translateX(100vw);
+	z-index: 99;
 	overflow-y: auto;
-	height: 100vh;
-	z-index: 500;
-	transition: right 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+	height: 100%;
+	// z-index: 500;
+	transition: transform 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
 	a {
 		width: 50%;
 		height: 50vh;
@@ -298,6 +337,7 @@ ABOUT SECTION
 	top: 0;
 	left: 0;
 	opacity: 0;
+	z-index: 101;
 	transition: opacity 1s 0.5s ease;
 	cursor: pointer;
 	.cls-1 {
@@ -343,7 +383,7 @@ ABOUT SECTION
 	overflow-y: auto;
 	height: 84vh;
 	// height: 100vh;
-	transition: all 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
+	// transition: all 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475);
 }
 
 .wrapper {
@@ -385,6 +425,7 @@ h1 {
 	}
 	em {
 		@include circularit(2.7rem);
+		font-style: normal;
 	}
 }
 

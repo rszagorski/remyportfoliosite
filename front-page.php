@@ -15,9 +15,9 @@ get_header();  ?>
 			if($devPortfolioLoop->have_posts()) while($devPortfolioLoop->have_posts()) :
 			$devPortfolioLoop->the_post();
 		?>
-		  	<a href="">
+		  	<a href="<?php the_field('dev_site_link')?>" target="_blank">
 		  		<?php $devProjectImage = get_field('dev_item_image'); ?>
-		  		<div class="developer-post-container" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.4) 20%, transparent 80%), url(<?php echo $devProjectImage['url']; ?>)">
+		  		<div class="developer-post-container" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.35) 5%, transparent 60%), url(<?php echo $devProjectImage['url']; ?>)">
 					<div class="overlay">
 						<div class="overlay-text">
 							<h2><?php the_field('dev_project_title'); ?></h2>
@@ -92,7 +92,7 @@ get_header();  ?>
 			<!-- permalink thing -->
 			<a href="<?php echo $linkToPage; ?>">
 				<?php $desProjectImage = get_field('design_item_image'); ?>
-				<div class="developer-post-container" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.4) 20%, transparent 80%), url(<?php echo $desProjectImage['url']; ?>)">
+				<div class="developer-post-container" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.35) 5%, transparent 60%), url(<?php echo $desProjectImage['url']; ?>)">
 					<div class="overlay">
 						<div class="overlay-text">
 							<h2><?php the_field('design_project_title'); ?></h2>
