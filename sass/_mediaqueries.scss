@@ -21,7 +21,10 @@
 @media (max-width: 1060px) {
 	svg.Z{
 		width: 35vw;
-  	}
+	}
+	.full-bleed, .wrapper2.img-wrapper {
+		margin-bottom: 8rem;
+	}
 }
 
 @media (max-width: 940px) {
@@ -67,13 +70,11 @@
 		}
 	}
 	.right {
-
-  		a {
+		a {
 			width: 100%;
-  		}
-  	}
+		}
+	}
 	.left {
-		
 		a {
 			width: 100%;
 		}
@@ -84,6 +85,43 @@
 	.about-post {
 		.img-wrapper {
 			width: 14rem;
+		}
+	}
+	.description-designpage {
+		width: 100%;
+		margin: 4rem 0 5.5rem;
+		h2 {
+			font-size: 3.8rem;
+		}
+	}
+	.description-summary {
+		margin: 0 0 3.5rem;
+	}
+	.portfolio-page {
+		p {
+			font-size: 1.4rem;
+			line-height: 2.6rem;
+		}
+	}
+	.footer-logo {
+		p {
+			font-size: 1.1rem;
+		}
+	}
+	.full-bleed, .wrapper2.img-wrapper {
+		margin-bottom: 6rem;
+	}
+	.posts-text{
+		h2 {
+		font-size: 1.7rem;
+		}
+		p {
+		margin: 0.55rem 0 1.5rem;
+		}
+	}
+	.client-info {
+		p {
+			margin: 1.4rem 0 0;
 		}
 	}
 }
@@ -110,6 +148,39 @@
 		height: 5.4rem;
 		i {
 			font-size: 2.1rem;
+		}
+	}
+	
+	.developer-post-container, .designer-post-container {
+		.overlay {
+			.arrow-text-container {
+				display: none;
+			}
+		}
+	}
+	.z-about-container {
+		&:hover h3{
+			color: white;
+		}
+		&:hover .cls-1 {
+			fill: white;
+		}
+	}
+	.designer-container:hover h3, .developer-container:hover h3 {
+		color: white;
+	}
+	.designer-container:hover .cls-2, .developer-container:hover .cls-2 {
+		fill: white;
+	}
+	.one {
+		p {
+		width: 100%;
+		}
+	}
+	.posts-text{
+		p{
+		font-size: 1.3rem;
+		line-height: 1.8rem;
 		}
 	}
 }
@@ -143,6 +214,23 @@
 			font-size: 2.4rem;
 		}
 	}
+	.more-projects{
+		.wrapper2 {
+			max-width: 1140px;
+			width: 90%;
+		}
+	}
+	nav a {
+		display: none;
+	}
+	.posts-text {
+		p {
+			display:none;
+		}
+	}
+	.arrow-text-container {
+		margin-top: 1rem;
+	}
 }
 
 @media (max-width: 618px) {
@@ -154,11 +242,61 @@
 		height: auto;
 		overflow-y: visible;
 	}
-	.back-to-main {
-		opacity: 0;
+	.description-designpage {
+		h2 {
+			font-size: 3.1rem;
+		}
+	}
+	.content {
+		padding-top: 4.5rem;
 	}
 }
 
+//figure out how to give this a rule\\
+
+@media (max-width: 515px) {
+	.designpage-socialcontainer {
+		justify-content: center;
+		flex-direction: column-reverse;
+		padding: 2.2rem 3rem;
+		&:before {
+			width: 40px;
+			height: 1px;
+			top: 0;
+		}
+	}
+	footer {
+		p.copyright {
+			margin-top: 1rem;
+		}
+	}
+	.more-projects {
+		padding: 4rem 0;
+		.wrapper2 {
+			width: 70%;
+		}
+		.more-container {
+			flex-direction: column;
+			a {
+				width: 100%;
+				margin: 0 0 2.5rem;
+			}
+		}
+	}
+	.footer-logo {
+		padding-top: 0rem;
+	}
+	.portfolio-page {
+		p {
+			margin-bottom: .5rem;
+		}
+	}
+	.posts-text {
+		h2 {
+			font-size: 2rem;
+		}
+	}
+}
 
 @media (max-width: 480px) {
 	svg.Z{
@@ -189,6 +327,24 @@
   	.social-container {
   		margin-bottom: 1rem;
   	}
+  	.portfolio-page {
+  		p {
+			font-size: 1.3rem;
+			line-height: 2.5rem;
+		}
+	}
+	.description-designpage {
+		margin: 3rem 0 4.2rem;
+		h2 {
+			font-size: 2.9rem;
+		}
+	}
+	.description-summary {
+		margin: 0 0 3rem;
+	}
+	.full-bleed, .wrapper2.img-wrapper {
+		margin-bottom: 4rem;
+	}
 }
 
 // @media (max-width: 320px) {

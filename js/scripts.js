@@ -9,8 +9,34 @@ devPortfolio.toggleZ = function(toToggle){
 	});
 };
 
+devPortfolio.mobileResize = function(){
+	if ($(window).width() < 618){
+		console.log('i am less than 680');
+		$('.back-to-main').addClass('z-gone');
+		$('.back-to-main').removeClass('z-appear');	
+	} else {
+		console.log('i am more than 680');
+		$('.back-to-main').removeClass('z-gone');
+		// $('.back-to-main').addClass('z-appear');
+	};
+};
+
+//window.on('scroll', function(){
+//do shit 
+//});
+
+// window.on('resize', function(){ //do shit });
+
+// devPortfolio.scrollpast = function(){
+// 	if ($(window)
+// 		scrollTop: $('about').offset().top
+// };
+
+
 devPortfolio.events = function(){
 	$(window).resize(function(){
+		var currentWindowWidth = $(window).width();
+		devPortfolio.mobileResize();
 		$('.main').css({
 			'transition': 'none'
 		});
@@ -26,6 +52,7 @@ devPortfolio.events = function(){
 		this.resizeTO = setTimeout(function(){
 			$(this).trigger('resizeEnd');
 		}, 100);
+
 	});
 	$(window).bind('resizeEnd', function(){
 		$('.main').css({
@@ -37,6 +64,13 @@ devPortfolio.events = function(){
 		$('.right').css({
 			'transition': 'transform 0.8s cubic-bezier(0.780, 0.340, 0.275, 0.475)'
 		});
+		console.log($(window).scrollTop());
+		console.log($('.about').offset().top);
+		// if ($(window).width() > 618 && $(window).scrollTop() > $('header').offset().top) {
+		// 	$('html,body').animate({
+		// 		scrollTop: $('header').offset().top
+		// 	}, 1000);
+		// }
 	});
 	//on the resize of the browser take that stupid fucking transition off of it. 
 
@@ -130,64 +164,59 @@ devPortfolio.events = function(){
 	//on click of the z logo again the user will be brought back to the main page (scroll up)
 	//and the small z logo and back to top text will disappear
 
-	$('.Z').on('click', function(){
-		$('html, body').animate({
-			scrollTop: $('.about').offset().top
-		}, 1000);
-		$('.back-to-main').css({
-			'opacity': 1,
-			'pointer-events': 'auto'
+	if ($(window).width() > 768){
+		$('.z-about-container').on('click', function(){
+			$('html, body').animate({
+				scrollTop: $('.about').offset().top
+			}, 1000);
+			$('.back-to-main').addClass('z-appear');
+			$('.back-to-main').removeClass('z-gone');
 		});
-		// $('.back-to-main').css({
-		// 	'opacity': 1
-		// });
-	});
 
-	$('.back-to-main').on('click', function(){
-		$('html, body').animate({
-			scrollTop: $('header').offset().top
-		}, 1000);
-		$(this).css({
-			'opacity': 0,
-			'pointer-events': 'none'
+		$('.back-to-main').on('click', function(){
+			$('html, body').animate({
+				scrollTop: $('header').offset().top
+			}, 1000);
+			$(this).removeClass('z-appear');
+			$(this).addClass('z-gone');
 		});
-	});
+	}
 
- //on hover of z- want gif 1 to be the svg that appears and hide other 3 svgs
- //on hover of developer want gif developer svg to appear and hide all other svgs
- //on hover of design want gif designer svg appear and hide all other svgs
- //have 
+	// Touch Support
+	var tap = ('ontouchstart' in document.documentElement);
 
-	$('.designer-container').mouseenter(function(){
-		console.log('mouseenter');
-		devPortfolio.toggleZ('.Z.sylv-designer_z');
-	}).mouseleave(function(){
-		console.log('mouseleave');
-		devPortfolio.toggleZ('.Z:last-of-type');
-	});
-
-	$('.developer-container').mouseenter(function(){
-		console.log('mouseenter');
-		devPortfolio.toggleZ('.Z.sylv-developer_z')
-	}).mouseleave(function(){
-		console.log('mouseleave');
-		devPortfolio.toggleZ('.Z:last-of-type');
-	});
-
-	//on hover of inner-z- show the about me arrow section- off of hover, don't show it
-	// also have about gif show on enter and not on leave
-
-	$('.z-container-inner').mouseenter(function(){
-		$('.z-about-container').css({
-			'opacity': 1
+	// If the browser doesn't support touch.
+	if (!tap) {
+		//on hover of z- want gif 1 to be the svg that appears and hide other 3 svgs
+		//on hover of developer want gif developer svg to appear and hide all other svgs
+		//on hover of design want gif designer svg appear and hide all other svgs
+		//have 
+		$('.designer-container').mouseenter(function(){
+			console.log('mouseenter');
+			devPortfolio.toggleZ('.Z.sylv-designer_z');
+		}).mouseleave(function(){
+			console.log('mouseleave');
+			devPortfolio.toggleZ('.Z:last-of-type');
 		});
-		devPortfolio.toggleZ('.Z.sylv-about_z');
-	}).mouseleave(function(){
-		$('.z-about-container').css({
-			'opacity': 0
+
+		$('.developer-container').mouseenter(function(){
+			console.log('mouseenter');
+			devPortfolio.toggleZ('.Z.sylv-developer_z')
+		}).mouseleave(function(){
+			console.log('mouseleave');
+			devPortfolio.toggleZ('.Z:last-of-type');
 		});
-		devPortfolio.toggleZ('.Z:last-of-type');
-	});
+
+		//on hover of inner-z- show the about me arrow section- off of hover, don't show it
+		// also have about gif show on enter and not on leave
+
+		$('.z-container-inner').mouseenter(function(){
+			$('.z-about-container').css({
+				'opacity': 1
+			});
+			devPortfolio.toggleZ('.Z.sylv-about_z');
+		});
+	}
 
 }; // end of function
 
@@ -198,6 +227,10 @@ devPortfolio.init = function(){
 		$('html, body').scrollTop(0)
 	}, 750);
 	devPortfolio.toggleZ('.Z:last-of-type');
+
+	if ($(window).width() < 768){
+		devPortfolio.toggleZ('.Z.sylv-designer_z');
+	};
 };
 
 $(function(){

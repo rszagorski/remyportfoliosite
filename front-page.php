@@ -91,6 +91,7 @@ get_header();  ?>
 			<?php $linkToPage = get_permalink(); ?>
 			<!-- permalink thing -->
 			<a href="<?php echo $linkToPage; ?>">
+			<!-- <a href="http://remzag.com/coming-soon" target="_blank"> -->
 				<?php $desProjectImage = get_field('design_item_image'); ?>
 				<div class="developer-post-container" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.35) 5%, transparent 60%), url(<?php echo $desProjectImage['url']; ?>)">
 					<div class="overlay">

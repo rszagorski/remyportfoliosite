@@ -46,6 +46,16 @@ body{
 	}
 }
 
+.back-to-main.z-gone {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.back-to-main.z-appear {
+	opacity: 1;
+	pointer-events: auto;
+}
+
 
 .main {
 	display: flex;
@@ -81,6 +91,18 @@ body{
 	svg#down-arrow {
 		height:2.2rem;
 		margin-top: 0.4rem;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+	&:hover h3{
+		color: $popcolor;
+	}
+	&:hover .cls-1 {
+		fill: $popcolor;
+	}
+	.cls-1 {
+		transition: fill 0.3s ease;
 	}
 }
 
@@ -162,11 +184,12 @@ BOTH SIDES
 				padding: 0.85rem 1.2rem;
 				font-family: $proxima;
 				font-size: 1.3rem;
-				font-weight: 100;
+				font-weight: 300;
 				color: $aboutbg;
 				letter-spacing: 0.03rem;
 				text-align: center;
 				min-width: 82px;
+				transition: background 0.4s ease;
 			}
 		}
 		.overlay-text {
@@ -226,6 +249,7 @@ BOTH SIDES
 	&:hover .overlay-skills h5 {
 		color: white;
 		border: 1px solid white;
+		background: rgba(253, 253, 253, 0.3);
 	}
 	img {
 		max-width: 100%;

@@ -1,20 +1,19 @@
 <?php get_header(); ?>
 
 <div class="portfolio-page">
-	
+	<nav>
+		<a href="<?php echo home_url('/');?>">Z</a>
+	</nav>
 	<?php $bgImage = get_field('big_background_project_image') ?>
 	<header class="port-header" style="background-image:url(<?php echo $bgImage['url']; ?>)">
-		<nav>
-			<a href="<?php home_url('/');?>">Z</a>
-		</nav>
 		<h1><?php the_field('big_project_headline') ?></h1>
 	</header>
 
 	<div class="content">
 		<div class="wrapper2">
 			<div class="top-section">
-				<div class="description-designpage">
-					<h2><?php the_field('header_1'); ?></h2>
+				<div class="description-summary one">
+					<h2 class="summary"><?php the_field('header_1'); ?></h2>
 					<p><?php the_field('project_description_1'); ?></p>
 				</div>
 				<div class="client-info">
@@ -26,39 +25,55 @@
 				<?php $midImage = get_field('middle_project_image') ?>
 				<img src="<?php echo $midImage['url']; ?>" alt="<?php echo $midImage['alt']; ?>">
 			</div>
+			<?php $midImagebg = get_field('middle_project_image') ?>
+			<div class="middle-image" style="background-image:url(<?php echo $midImagebg['url']; ?>)"></div>
+
 			<div class="description-designpage">
 				<h2><?php the_field('header_2'); ?></h2>
 				<p><?php the_field('project_description_2'); ?></p>
 			</div>
-			<div class="images-duo">
-				<?php $smImage1 = get_field('small_project_image_1') ?>
-				<img src="<?php echo $smImage1['url']; ?>" alt="<?php echo $smImage1['alt']; ?>">
-				<?php $smImage2 = get_field('small_project_image_2') ?>
-				<img src="<?php echo $smImage2['url']; ?>" alt="<?php echo $smImage2['alt']; ?>">
+			<div class="img-wrapper">
+				<?php $midImage2 = get_field('middle_project_image_2') ?>
+				<img src="<?php echo $midImage2['url']; ?>" alt="<?php echo $midImage['alt']; ?>">
+			</div>
+			<div class="img-duo">
+				<div class="img-wrapper">
+					<?php $smImage1 = get_field('small_project_image_1') ?>
+					<img src="<?php echo $smImage1['url']; ?>" alt="<?php echo $smImage1['alt']; ?>">
+				</div>
+				<div class="img-wrapper">
+					<?php $smImage2 = get_field('small_project_image_2') ?>
+					<img src="<?php echo $smImage2['url']; ?>" alt="<?php echo $smImage2['alt']; ?>">
+				</div>
 			</div>
 			<div class="description-designpage">
 				<h2><?php the_field('header_3'); ?></h2>
 				<p><?php the_field('project_description_3'); ?></p>
 			</div>
-			<div class="img-wrapper">
-				<?php $bottomImage = get_field('bottom_project_image') ?>
-				<img src="<?php echo $bottomImage['url']; ?>" alt="<?php echo $bottomImage['alt']; ?>">
-			</div>
 		</div>
-
-      <?//php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+		<div class="img-wrapper full-bleed">
+			<?php $bottomImage = get_field('bottom_project_image') ?>
+			<img src="<?php echo $bottomImage['url']; ?>" alt="<?php echo $bottomImage['alt']; ?>">
+		</div>
+		<div class="wrapper2 img-wrapper">
+			<?php $bottomImage2 = get_field('bottom_2_project_image') ?>
+			<img src="<?php echo $bottomImage2['url']; ?>" alt="<?php echo $bottomImage2['alt']; ?>">
+		</div>
 		<div class="more-projects">
 			<div class="wrapper2">
-				<?php 
-					$desPortfolioArgs = array(
-					'post_type' => 'designer_post_type',
-					'posts_per_page' => 3,
-					);
-					$desPortfolioLoop = new WP_Query($desPortfolioArgs);
-
-					if($desPortfolioLoop->have_posts()) while ($desPortfolioLoop->have_posts()) :
-					$desPortfolioLoop->the_post();
-				?>
+				<h3>more work</h3>
+				<div class="more-container">
+					<?php 
+						$postID = get_the_ID(); //variable to get the post ID of the current designer portfolio piece post
+						$postIDArray = array($postID); //turn the postID into an array so you can later exclude it from your wp query
+						$desPortfolioArray = array(
+							'post_type'=>'designer_post_type',
+							'post__not_in' => $postIDArray, //Tells the search to skip the current post ID
+							'showposts' => 3 ); //An array of search criteria NOT the Search for posts
+						$desPortfolioLoop = new WP_query($desPortfolioArray); //Searching your database for posts
+						if($desPortfolioLoop->have_posts()) :
+						    while($desPortfolioLoop->have_posts()) : $desPortfolioLoop->the_post();
+					?>
 					<?php $linkToPage = get_permalink(); ?>
 					<!-- permalink thing -->
 					<a href="<?php echo $linkToPage; ?>">
@@ -74,11 +89,10 @@
 							</div>
 						</div>
 					</a>
-				<?php endwhile; ?>
+					<?php endwhile; endif //Ends the loop through portfolio pieces?> 
+				</div>
 			</div>
 		</div>
-
-      <?//php endwhile; // end of the loop. ?>
 
     </div> <!-- /.content -->
 

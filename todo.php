@@ -4,18 +4,47 @@ TO DO
 
 <!-- - make the site responsive  -->
 
+-----------------------
+IMPORTANT
+-----------------------
 
-make sites I'm using responsive
-	-election
-	-spectre
-	-wordpress
-	-api
-
-write shit for each of my projects
+remove hover states on mobile from my shit
 
 write javascript for the Z thingy (in notes)
 
-deploy wordpress site
+<!-- disable designer links to link out to project page -->
+
+re-link the Z on project pages to the homepage 
+
+<!-- make sites I'm using responsive -->
+<!-- 	-election -->
+	<!-- -spectre -->
+<!-- 	-wordpress
+		finiah the mantra section both pages -->
+<!-- 		home page -->
+<!-- 		contact page
+			blog page -->
+<!-- 	-api -->
+
+<!-- write shit for each of my projects -->
+
+<!-- deploy wordpress site -->
+
+
+-----------------------
+2nd TIER
+-----------------------
+
+make the API site scroll top thing work
+
+make the X turn back into the bars on spectre
+
+make favacons for every site?
+
+
+-----------------------
+3rd TIER
+-----------------------
 
 make portfolio pages for all design projects
 

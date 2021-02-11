@@ -7,8 +7,10 @@
 	<title><?php  wp_title('|', true, 'right'); ?></title>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
-	<script src="https://use.typekit.net/mgn2quc.js"></script>
+	<script src="https://use.typekit.net/umu7nzi.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+	<!-- <script src="https://use.typekit.net/mgn2quc.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script> -->
 	<?php wp_head(); ?>
 </head>
 <body>
